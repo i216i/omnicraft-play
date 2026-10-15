@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="OmniCraft" />
+    <link rel="apple-touch-icon" href="/omnicraft-play/icon.png" />
+    <title>OmniCraft</title>
+    <link rel="icon" href="/omnicraft-play/icon.png" />
+    <script type="module" crossorigin src="/omnicraft-play/assets/index-C-9zoMb4.js"></script>
+    <link rel="stylesheet" crossorigin href="/omnicraft-play/assets/index-BR8Ik4TS.css">
+  </head>
+  <body>
+    <div id="app"></div>
+    <div id="underwater"></div>
+    <div id="crosshair"></div>
+    <div id="hurt"></div>
+    <div id="edgeL" class="edge"></div>
+    <div id="edgeR" class="edge"></div>
+    <div id="hearts"></div>
+    <div id="hotbar"></div>
+    <div id="mineBar" class="hidden"><div></div></div>
+    <div id="dead" class="hidden"><h1>You died</h1><p>Respawning at Agent HQ…</p></div>
+    <div id="toast"></div>
+    <div id="debug" class="hidden"></div>
+
+    <div id="menu" class="overlay">
+      <div class="panel">
+        <h1>OmniCraft</h1>
+        <p class="sub">your world, your rules</p>
+        <button id="play" disabled>Loading world…</button>
+        <button id="newWorld" class="secondary">New World</button>
+        <div class="settings">
+          <div class="row">Mode <span id="modeSel" class="seg"><button data-mode="play">Play</button><button data-mode="survival">Survival</button></span></div>
+          <div class="row">View <span id="viewSel" class="seg"><button data-view="1">3rd person</button><button data-view="0">1st person</button></span></div>
+          <label>Field of view <input id="fov" type="range" min="60" max="100" step="5" /> <span id="fovVal"></span></label>
+          <label>Mouse speed <input id="sens" type="range" min="0.05" max="2" step="0.05" /> <span id="sensVal"></span></label>
+          <label><input id="invertY" type="checkbox" /> Invert mouse Y</label>
+          <p class="modeHelp">Play: unlimited blocks, instant digging, gentler monsters at night. Survival: dig to collect blocks, monsters day and night, no flying.</p>
+        </div>
+        <p class="touchHelp">Left thumb: move (push far to run) · Right thumb: look, tap to hit · ⚔ attack / dig (hold) · ▣ place block · ⤒ jump (double-tap: fly) · tap the hotbar to switch</p>
+        <div class="controls">
+          <div><b>WASD</b> move · <b>Space</b> jump (double-tap: fly in Play)</div>
+          <div><b>Shift / double-tap W</b> sprint</div>
+          <div><b>1-9 / wheel</b> pick hotbar slot · <b>Q</b> put weapon away</div>
+          <div><b>3</b> pickaxe · <b>4-9</b> blocks</div>
+          <div><b>Left click</b> attack / shoot / dig</div>
+          <div><b>Right click</b> place block (white box shows where) / aim gun</div>
+          <div><b>Middle click</b> copy the block you look at</div>
+          <div><b>V</b> 1st / 3rd person · <b>F5</b> front view</div>
+          <div><b>E</b> inventory · <b>C</b> wardrobe · <b>F</b> talk to agent</div>
+          <div><b>M</b> music · <b>F3</b> debug · <b>F11</b> fullscreen</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="inventory" class="overlay hidden">
+      <div class="panel">
+        <h2>Weapons</h2>
+        <div id="invWeapons" class="invGrid"></div>
+        <h2>Blocks</h2>
+        <div id="invGrid" class="invGrid"></div>
+        <p class="hint">Click anything to put it in your selected hotbar slot · E to close</p>
+      </div>
+    </div>
+
+    <div id="talkHint" class="hidden"></div>
+    <div id="agentPanel" class="hidden">
+      <div class="wr-head">
+        <h2 id="agName">Agent</h2>
+        <button id="agClose">Close</button>
+      </div>
+      <div id="agStatus"></div>
+      <div id="agLog"></div>
+      <div id="agFollow"></div>
+      <div id="agControls"></div>
+      <div id="agError"></div>
+      <p class="hint">Esc or F to close</p>
+    </div>
+    <div id="weaponHud" class="hidden"></div>
+    <div id="scope" class="hidden"></div>
+
+    <div id="wardrobe" class="hidden">
+      <div class="wr-head">
+        <h2>Wardrobe</h2>
+        <button id="wrRandom">🎲 Random</button>
+        <button id="wrClose">Done</button>
+      </div>
+      <div id="wrTabs"></div>
+      <div id="wrGrid"></div>
+      <p class="hint">Drag your character to spin · C or Esc to close</p>
+    </div>
+
+  </body>
+</html>
