@@ -10,8 +10,8 @@
     <link rel="apple-touch-icon" href="/omnicraft-play/icon.png" />
     <title>OmniCraft</title>
     <link rel="icon" href="/omnicraft-play/icon.png" />
-    <script type="module" crossorigin src="/omnicraft-play/assets/index-C2xtbvH_.js"></script>
-    <link rel="stylesheet" crossorigin href="/omnicraft-play/assets/index-CP_b5MuR.css">
+    <script type="module" crossorigin src="/omnicraft-play/assets/index-CKcSq-Yg.js"></script>
+    <link rel="stylesheet" crossorigin href="/omnicraft-play/assets/index-C5_xvXil.css">
   </head>
   <body>
     <div id="app"></div>
@@ -25,6 +25,8 @@
     <div id="mineBar" class="hidden"><div></div></div>
     <div id="buildBar" class="hidden"></div>
     <div id="mats" class="hidden"></div>
+    <div id="raid" class="hidden"></div>
+    <div id="extractBar" class="hidden"><span></span><div><div></div></div></div>
     <div id="dead" class="hidden"><h1>You died</h1><p>Respawning at Agent HQ…</p></div>
     <div id="toast"></div>
     <div id="debug" class="hidden"></div>
@@ -35,6 +37,10 @@
         <p class="sub">your world, your rules</p>
         <button id="play" disabled>Loading world…</button>
         <button id="newWorld" class="secondary">New World</button>
+        <div id="deployRow" class="hidden">
+          <p class="sub">Deploy topside from Speranza · loot goes in your backpack · extract at a green beam to stash it</p>
+          <div id="deploySel"></div>
+        </div>
         <div class="settings">
           <div class="row">World <span id="worldSel" class="seg"><button data-world="classic">Classic</button><button data-world="raider">Raider (ARC)</button></span></div>
           <div class="row">Mode <span id="modeSel" class="seg"><button data-mode="play">Play</button><button data-mode="survival">Survival</button></span></div>
@@ -50,6 +56,7 @@
           <div><b>Shift / double-tap W</b> sprint</div>
           <div><b>1-9 / wheel</b> pick hotbar slot · <b>Q</b> put weapon away</div>
           <div><b>3</b> pickaxe · <b>4-9</b> blocks · <b>B</b> build base pieces</div>
+          <div><b>Raider</b>: hit crates, med bags, lockers to loot · stand on a green beam to extract</div>
           <div><b>Left click</b> attack / shoot / dig</div>
           <div><b>Right click</b> place block (white box shows where) / aim gun</div>
           <div><b>Middle click</b> copy the block you look at</div>
